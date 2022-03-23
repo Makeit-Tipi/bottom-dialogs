@@ -17,22 +17,25 @@ export interface OwnProps {
 export type IconProps = StateProps & DispatchProps & OwnProps;
 
 const Icon = (props: IconProps) => {
-  const { viewStyle, action, color, icon, style } = props;
+  const { viewStyle, action, color = 'black', icon, style } = props;
 
   const renderIcon = useCallback(() => {
     const combinedStyle = {
       ...styles.defaultIcon,
       ...style,
-      tintColor: color || 'black',
+      tintColor: color,
     };
 
-    return (
-      <Image
-        style={combinedStyle}
-        resizeMode="contain"
-        source={require(`./assets/${icon || 'close'}.png`)}
-      />
-    );
+    switch (icon) {
+      default:
+        return (
+          <Image
+            style={combinedStyle}
+            resizeMode="contain"
+            source={require(`./assets/close.png`)}
+          />
+        );
+    }
   }, [icon, style, color]);
 
   return action ? (

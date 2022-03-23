@@ -190,7 +190,7 @@ const BottomModalHandler = (props: BottomModalHandlerProps) => {
                   style={[styles.side]}
                   onPress={() => handleClose()}
                 >
-                  <Icon icon="close" style={{ width: 10 }} color="darkGrey" />
+                  <Icon icon="close" style={{ width: 10 }} />
                 </TouchableOpacity>
                 <View
                   style={{
