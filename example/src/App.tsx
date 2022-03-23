@@ -1,18 +1,14 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-bottom-dialogs';
+import { StyleSheet, View } from 'react-native';
+import { BottomModals } from 'react-native-bottom-dialogs';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <BottomModals
+        dialogs={[{ modal: { content: 'Hello' }, id: 'custom', active: true }]}
+      />
     </View>
   );
 }
